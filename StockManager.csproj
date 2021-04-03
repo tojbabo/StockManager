@@ -57,12 +57,15 @@
     </ApplicationDefinition>
     <Compile Include="MODEL\ListData.cs" />
     <Compile Include="MODEL\Material.cs" />
+    <Compile Include="MODEL\Stuff.cs" />
     <Compile Include="UTILITY\FILE.cs" />
     <Compile Include="VIEWMODEL\CORE.cs" />
+    <Compile Include="VIEWMODEL\VM.cs" />
     <Compile Include="VIEWMODEL\VM_FRAME.cs" />
     <Compile Include="VIEWMODEL\VM_INPUT.cs" />
-    <Compile Include="VIEW\MAINFRAME.xaml.cs">
-      <DependentUpon>MAINFRAME.xaml</DependentUpon>
+    <Compile Include="VIEWMODEL\VM_STUFF.cs" />
+    <Compile Include="VIEW\FRAMEMAIN.xaml.cs">
+      <DependentUpon>FRAMEMAIN.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -71,11 +74,25 @@
     <Compile Include="VIEW\PAGEINPUT.xaml.cs">
       <DependentUpon>PAGEINPUT.xaml</DependentUpon>
     </Compile>
-    <Page Include="VIEW\MAINFRAME.xaml">
+    <Compile Include="VIEW\PAGEMATERIAL.xaml.cs">
+      <DependentUpon>PAGEMATERIAL.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\WINDOWSTUFF.xaml.cs">
+      <DependentUpon>WINDOWSTUFF.xaml</DependentUpon>
+    </Compile>
+    <Page Include="VIEW\FRAMEMAIN.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VIEW\PAGEINPUT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VIEW\PAGEMATERIAL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VIEW\WINDOWSTUFF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

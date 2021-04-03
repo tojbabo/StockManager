@@ -27,7 +27,7 @@ namespace StockManager.VIEW
         {
             InitializeComponent();
             core = CORE.getCORE();
-            vm_in = core.GetVmInput();
+            vm_in = core.GetInput();
             this.DataContext = vm_in;
             ///데이터 바인딩에 참여할 대 요소에 대한 데이터 컨텍스트를 가져오거나 설정
             ///xmal은 xaml.cs와 연결되어 있는데 이에 대한 처리를 하는 cs와 연결하기 위해 사용

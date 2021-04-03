@@ -8,34 +8,41 @@ namespace StockManager.VIEWMODEL
 {
     public sealed class CORE
     {
-        public static CORE staticCORE = null;
+        private static CORE _core = null;
         public static CORE getCORE()
         {
-            if (staticCORE == null)
+            if (_core == null)
             {
-                staticCORE = new CORE();
-                staticCORE.Initalize();
+                _core = new CORE();
+                _core.Initalize();
             }
-            return staticCORE;
+            return _core;
         }
 
-        private VM_FRAME vm_frame;
-        public VM_FRAME GetVmFrame()
+        private VM_FRAME _vm_frame;
+        public VM_FRAME GetFrame()
         {
-            return vm_frame;
+            return _vm_frame;
         }
 
-        private VM_INPUT vm_input;
-        public VM_INPUT GetVmInput()
+        private VM_INPUT _vm_input;
+        public VM_INPUT GetInput()
         {
-            return vm_input;
+            return _vm_input;
+        }
+
+        private VM_STUFF _vm_stuff;
+        public VM_STUFF GetStuff()
+        {
+            return _vm_stuff;
         }
 
 
         private void Initalize()
         {
-            vm_frame = new VM_FRAME();
-            vm_input = new VM_INPUT();
+            _vm_frame = new VM_FRAME();
+            _vm_input = new VM_INPUT();
+            _vm_stuff = new VM_STUFF();
         }
     }
 }

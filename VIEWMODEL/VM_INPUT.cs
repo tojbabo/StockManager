@@ -3,6 +3,7 @@ using StockManager.UTILITY;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,21 @@ using System.Threading.Tasks;
 
 namespace StockManager.VIEWMODEL
 {
-    public class VM_INPUT
+    public class VM_INPUT : VM
     {
+        private string _test;
+
+        public string test
+        {
+            get => _test;
+            set
+            {
+                _test = value;
+                OnPropertyChanged(nameof(test));
+            }
+        }
+
         public ObservableCollection<ListData> list { get; set; }//리스트랑 같은 느낌
-        public string test{get;set;}
 
         public VM_INPUT()
         {
