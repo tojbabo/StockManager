@@ -22,19 +22,21 @@ namespace StockManager.VIEW
     public partial class PAGEINPUT : Page
     {
         CORE core;
-        VM_INPUT vm;
+        VM_INPUT vm_in;
         public PAGEINPUT()
         {
             InitializeComponent();
             core = CORE.getCORE();
-            vm = core.GetVmInput();
-
-            this.DataContext = vm;
+            vm_in = core.GetVmInput();
+            this.DataContext = vm_in;
+            ///데이터 바인딩에 참여할 대 요소에 대한 데이터 컨텍스트를 가져오거나 설정
+            ///xmal은 xaml.cs와 연결되어 있는데 이에 대한 처리를 하는 cs와 연결하기 위해 사용
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            vm.datawrite(C_data.Text);
+            vm_in.datawrite2(C_data2.Text);
+            vm_in.datawrite(C_data.Text);
             C_data.Text = "";
         }
     }

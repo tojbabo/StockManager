@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace StockManager.MODEL
 {
-    public class ListData
+    public class Material
     {
-        public string key { get; set; }
-        public string value { get; set; }
-    }
 
+    }
 }

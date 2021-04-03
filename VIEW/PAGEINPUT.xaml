@@ -16,10 +16,12 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="0" Width="50" Margin="5"/>
-        <TextBox Grid.Row="0" Grid.Column="1" x:Name="C_data" Width="100" Margin="5"/>
-        <Button Grid.Row="1" Grid.Column="0" Width="50" Content="확인" Click="Button_Click"/>
+        <TextBox Grid.Row="0" Grid.Column="0" x:Name="C_data2" Width="50" Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding test}" Width="50" Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="2" x:Name="C_data" Width="100" Margin="5"/>
+        <Button Grid.Row="1" Grid.Column="0" Width="50" Content="확인1" Click="Button_Click"/>
         <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding list}"
                  HorizontalContentAlignment="Stretch">
             <ListBox.ItemTemplate>
