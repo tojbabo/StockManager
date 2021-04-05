@@ -6,45 +6,51 @@
         xmlns:local="clr-namespace:StockManager.VIEW"
         mc:Ignorable="d" Background="Brown"
         Title="WINDOWSTUFF" Height="450" Width="300">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <ListView Grid.Row="0" ItemsSource="{Binding items}"
-                  HorizontalContentAlignment="Stretch">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" Text="{Binding name}" />
-                        <TextBox Grid.Column="1"  Text="{Binding name}"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate></ListView>
-        <Grid Grid.Row="1">
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="210*"/>
+      <ColumnDefinition Width="40*"/>
+      <ColumnDefinition Width="43*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="3*"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <ListView Grid.Row="0" ItemsSource="{Binding items}"
+                  HorizontalContentAlignment="Stretch" Grid.ColumnSpan="3" Margin="0,0,-0.4,0">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" x:Name="NAME"/>
-            <TextBox Grid.Column="1" x:Name="PRICE"/>
-            <TextBox Grid.Column="2"/>
-        </Grid>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="추가" Click="Btn_Add"/>
-            <Button Grid.Column="1" Content="저장" Click="Btn_Save"/>
-        </Grid>
+            <TextBox Grid.Column="0" Text="{Binding name}" />
+            <TextBox Grid.Column="1"  Text="{Binding name}"/>
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListView>
+    <Grid Grid.Row="1" Grid.ColumnSpan="3" Margin="0,0,-0.4,0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <TextBox Grid.Column="0" x:Name="NAME"/>
+      <TextBox Grid.Column="1" x:Name="PRICE"/>
+      <TextBox Grid.Column="2"/>
     </Grid>
+    <Grid Grid.Row="2" Grid.ColumnSpan="3" Margin="0,0,-0.4,0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Button Grid.Column="0" Content="추가" Click="Btn_Add"/>
+      <Button Grid.Column="1" Content="저장" Click="Btn_Save"/>
+    </Grid>
+  </Grid>
 </Window>
