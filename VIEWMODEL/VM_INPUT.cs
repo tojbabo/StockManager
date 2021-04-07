@@ -13,42 +13,9 @@ namespace StockManager.VIEWMODEL
 {
     public class VM_INPUT : VM
     {
-        private string _test;
-
-        public string test
+        internal void addMaterial()
         {
-            get => _test;
-            set
-            {
-                _test = value;
-                OnPropertyChanged(nameof(test));
-            }
+            throw new NotImplementedException();
         }
-
-        public ObservableCollection<ListData> list { get; set; }//리스트랑 같은 느낌
-
-        public VM_INPUT()
-        {
-            list = new ObservableCollection<ListData>();
-            test = null;
-        }
-
-        public void datawrite(string data)
-        {
-            FILE.write(data);
-            
-            list.Add(new ListData
-            {
-                key = data,
-                value = data
-            });
-        }
-         public void datawrite2(string data)
-        {
-            FILE.write(data);
-            
-            test = data;
-        }
-
     }
 }

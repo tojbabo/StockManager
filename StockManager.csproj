@@ -63,6 +63,7 @@
     <Compile Include="VIEWMODEL\VM.cs" />
     <Compile Include="VIEWMODEL\VM_FRAME.cs" />
     <Compile Include="VIEWMODEL\VM_INPUT.cs" />
+    <Compile Include="VIEWMODEL\VM_INPUT_TEST.cs" />
     <Compile Include="VIEWMODEL\VM_STUFF.cs" />
     <Compile Include="VIEW\FRAMEMAIN.xaml.cs">
       <DependentUpon>FRAMEMAIN.xaml</DependentUpon>

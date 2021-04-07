@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockManager.VIEWMODEL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,19 @@ namespace StockManager.VIEW
     /// </summary>
     public partial class PAGEMATERIAL : Page
     {
+        CORE core;
+        VM_INPUT vm;
         public PAGEMATERIAL()
         {
             InitializeComponent();
+            core = CORE.getCORE();
+            vm = core.GetInput();
+            this.DataContext = vm;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            vm.addMaterial();
         }
     }
 }
