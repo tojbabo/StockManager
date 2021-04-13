@@ -25,7 +25,6 @@ namespace StockManager.VIEW
         {
             InitializeComponent();
             PageLoad();
-            FRAME.Navigate(page_input);
         }
 
         private void PageLoad()

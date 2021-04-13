@@ -21,8 +21,8 @@ namespace StockManager.VIEW
     /// </summary>
     public partial class PAGEMATERIAL : Page
     {
-        CORE core;
-        VM_INPUT vm;
+        private CORE core;
+        private VM_INPUT vm;
         public PAGEMATERIAL()
         {
             InitializeComponent();
@@ -31,9 +31,23 @@ namespace StockManager.VIEW
             this.DataContext = vm;
         }
 
+        private void Btn_StuffModify(object sender, RoutedEventArgs e)
+        {
+            WINDOWSTUFF ws = new WINDOWSTUFF();
+            ws.Show();
+
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             vm.addMaterial();
+        }
+
+        private void Btn_MaterialInput(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(
+                new Uri("/PAGEMATERIAL.xaml", UriKind.Relative)
+                );
         }
     }
 }

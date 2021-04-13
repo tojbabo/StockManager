@@ -26,10 +26,12 @@
             <DockPanel HorizontalAlignment="Left">
                 <Button Click="Btn_MaterialInput"
                         Width="30" Height="30" Content="1" Margin="5,0,5,0"></Button>
-                <Button Click="Btn_MenuSell"
+                <Button 
                         Width="30" Height="30" Content="2" Margin="5,0,5,0"></Button>
-                <Button Click="Btn_Statistics"
+                <!-- Click="Btn_MenuSell"--> 
+                <Button
                         Width="30" Height="30" Content="3" Margin="5,0,5,0"></Button>
+                <!--Click="Btn_Statistics"--> 
 
             </DockPanel>
 
@@ -59,11 +61,14 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="내용수정" Click="Btn_MaterialModify" Margin="0,0,10,0"/>
+            <Button Grid.Column="0" Content="내용수정" Margin="0,0,10,0"/>
+            <!--Click="Btn_MaterialModify"-->
             <Button Grid.Column="1" Content="품목수정" Click="Btn_StuffModify" Margin="0,0,10,0"/>
-            <Button Grid.Column="2" Content="초기화" Click="Btn_Reset" Margin="0,0,10,0"/>
-            <Button Grid.Column="3" Content="저장" Click="Btn_Save" Margin="0,0,10,0"/>
-            <Button Grid.Column="4" Content="추가" Click="Btn_Add" Margin="0,0,10,0"/>
+            <Button Grid.Column="2" Content="초기화"  Margin="0,0,10,0"/>
+            <!--Click="Btn_Reset"-->
+            <Button Grid.Column="3" Content="저장" Margin="0,0,10,0"/>
+            <!-- Click="Btn_Save"--> 
+            <Button Grid.Column="4" Content="추가" Margin="0,0,10,0"/>
         </Grid>
     </Grid>
 </Page>
