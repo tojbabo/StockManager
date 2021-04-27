@@ -20,6 +20,10 @@ namespace StockManager.VIEWMODEL
             items.Add(4);
             items.Add(4);
         }
+        public void f()
+        {
+            items.Add(1);
+        }
 
     }
 }

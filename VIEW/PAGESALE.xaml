@@ -46,10 +46,10 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" Text="one" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <TextBox Grid.Column="1" Text="two" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <TextBox Grid.Column="2" Text="three" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <TextBox Grid.Column="3" Text="four" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Column="0" Text="" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Column="1" Text="" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Column="2" Text="" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Column="3" Text="" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -69,7 +69,7 @@
             <Button Grid.Column="1" Content="품목수정" Margin="5,0,5,0"/>
             <Button Grid.Column="2" Content="초기화" Margin="5,0,5,0"/>
             <Button Grid.Column="3" Content="저장" Margin="5,0,5,0"/>
-            <Button Grid.Column="4" Content="추가" Margin="5,0,5,0"/>
+            <Button Grid.Column="4" Content="추가" Margin="5,0,5,0" Click="Button_Click"/>
         </Grid>
     </Grid>
 </Page>

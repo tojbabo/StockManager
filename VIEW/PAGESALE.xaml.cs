@@ -31,5 +31,10 @@ namespace StockManager.VIEW
 
             this.DataContext = vm;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            vm.f();
+        }
     }
 }
