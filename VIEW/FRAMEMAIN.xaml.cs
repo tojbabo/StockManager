@@ -21,16 +21,19 @@ namespace StockManager.VIEW
     {
         private PAGEINPUT page_input;
         private PAGEMATERIAL page_material;
+        private PAGESALE page_sale;
         public FRAMEMAIN()
         {
             InitializeComponent();
             PageLoad();
+            FRAME.Navigate(page_material);
         }
 
         private void PageLoad()
         {
             page_input = new PAGEINPUT();
             page_material = new PAGEMATERIAL();
+            page_sale = new PAGESALE();
         }
 
 
@@ -44,11 +47,9 @@ namespace StockManager.VIEW
             FRAME.Navigate(page_material);
 
         }
-        private void Btn_Stuff(object sender, RoutedEventArgs e)
+        private void Btn_Sale(object sender, RoutedEventArgs e)
         {
-            WINDOWSTUFF ws = new WINDOWSTUFF();
-            ws.Show();
+            FRAME.Navigate(page_sale);
         }
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using StockManager.MODEL;
+﻿using StockManager.ABSTRACT;
+using StockManager.MODEL;
 using StockManager.UTILITY;
 using System;
 using System.Collections.Generic;

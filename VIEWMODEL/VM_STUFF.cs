@@ -1,17 +1,19 @@
-﻿using StockManager.MODEL;
+﻿using StockManager.ABSTRACT;
+using StockManager.MODEL;
 using StockManager.UTILITY;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StockManager.VIEWMODEL
 {
     public class VM_STUFF : VM
     {
+        public VM_STUFF()
+        {
+            StuffLoad();
+        }
+        
         #region property
         private ObservableCollection<Stuff> _items;
         public ObservableCollection<Stuff> items
@@ -31,21 +33,49 @@ namespace StockManager.VIEWMODEL
         #endregion
 
         #region method
+        
 
-        public void f(string data)
+        public void StuffLoad() {
+           
+            var lines = FILE.read(@"tt");
+
+            foreach(string line in lines)
+            {
+                var datas = line.Split(',');
+                items.Add(new Stuff
+                {
+                    code = Convert.ToInt32(datas[0]),
+                    category = datas[1],
+                    item = datas[2],
+                    price = datas[3],
+                });
+            }
+
+        }
+        public void StuffAdd(string datas)
         {
+            var data = datas.Split(',');
             items.Add(new Stuff
             {
-                id = items.Count,
-                name = data,
+                code = items.Count,
+                category = data[0],
+                item = data[1],
+                price = data[2],
             }) ;
         }
-        public void save()
+        public void StuffSave()
         {
             List<string> datas = new List<string>();
             foreach (Stuff s in items)
                 datas.Add(s.ToString());
-            FILE.write(@"tt",datas);
+            FILE.write(@"tt",datas,false);
+        }
+        public void StuffDel(List<Stuff> datas)
+        {
+            foreach(var item in datas)
+            {
+                items.Remove(item);
+            }
         }
         #endregion
 

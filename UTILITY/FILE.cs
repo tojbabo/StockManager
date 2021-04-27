@@ -19,16 +19,29 @@ namespace StockManager.UTILITY
             file.Close();
         }
 
-        public static void write(string path, List<string> data)
+        public static void write(string path, List<string> data, bool append = true)
         {
             StreamWriter file =
-                new StreamWriter(path, true, Encoding.GetEncoding("utf-8"));
+                new StreamWriter(path, append, Encoding.GetEncoding("utf-8"));
 
             foreach (string s in data)
             {
                 file.WriteLine(s);
             }
             file.Close();
+        }
+
+        public static List<string> read(string path)
+        {
+            StreamReader file = new StreamReader(path);
+            List<string> datas = new List<string>();
+            string line;
+            while ((line = file.ReadLine()) != null)
+            {
+                datas.Add(line);
+            }
+            file.Close();
+            return datas;
         }
     }
 }

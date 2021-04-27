@@ -19,9 +19,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="2" Content="참고용" Click="Btn_Input"/>
-            <Button Grid.Column="3" Content="재료" Click="Btn_Material"/>
-            <Button Grid.Column="4" Content="stuff_temp" Click="Btn_Stuff"/>
+            <Button Grid.Column="2" Content="재료" Click="Btn_Material"/>
+            <Button Grid.Column="3" Content="판매" Click="Btn_Sale"/>
+            <Button Grid.Column="4" Content="참고용" Click="Btn_Input"/>
         </Grid>
         <Frame Grid.Row="1" x:Name="FRAME" NavigationUIVisibility="Hidden"/>
     </Grid>

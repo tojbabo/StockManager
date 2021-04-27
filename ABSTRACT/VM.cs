@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StockManager.VIEWMODEL
+namespace StockManager.ABSTRACT
 {
-    public class VM : INotifyPropertyChanged
+    public abstract class VM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
