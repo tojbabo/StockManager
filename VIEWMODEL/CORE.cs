@@ -25,24 +25,31 @@ namespace StockManager.VIEWMODEL
             return _vm_frame;
         }
 
-        private VM_INPUT _vm_input;
-        public VM_INPUT GetInput()
+        private VM_MATERIAL _vm_material;
+        public VM_MATERIAL GetMaterial()
         {
-            return _vm_input;
+            return _vm_material;
         }
 
-        private VM_STUFF _vm_stuff;
-        public VM_STUFF GetStuff()
+        private VM_SALE _vm_sale;
+        public VM_SALE GetSale()
         {
-            return _vm_stuff;
+            return _vm_sale;
         }
+
+        //private VM_STUFF _vm_stuff;
+        //public VM_STUFF GetStuff()
+        //{
+        //    return _vm_stuff;
+        //}
 
 
         private void Initalize()
         {
             _vm_frame = new VM_FRAME();
-            _vm_input = new VM_INPUT();
-            _vm_stuff = new VM_STUFF();
+            _vm_material = new VM_MATERIAL();
+            _vm_sale = new VM_SALE();
+            //_vm_stuff = new VM_STUFF();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using StockManager.VIEWMODEL;
+﻿using StockManager.MODEL;
+using StockManager.VIEWMODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,23 +20,34 @@ namespace StockManager.VIEW
     {
         CORE core;
         VM_STUFF vm;
+
         public WINDOWSTUFF()
         {
             InitializeComponent();
             core = CORE.getCORE();
-            vm = core.GetStuff();
+            vm = new VM_STUFF();
 
             this.DataContext = vm;
+
+            //vm.StuffLoad();
         }
 
         private void Btn_Add(object sender, RoutedEventArgs e)
         {
-            vm.f(NAME.Text);
+
+            vm.StuffAdd($"{CATEGORY.Text},{ITEM.Text},{PRICE.Text}");
         }
 
         private void Btn_Save(object sender, RoutedEventArgs e)
         {
-            vm.save();
+            vm.StuffSave();
+        }
+
+        private void Btn_Del(object sender, RoutedEventArgs e)
+        {
+            var items = listview.SelectedItems.Cast<Stuff>().ToList();
+
+            vm.StuffDel(items);
         }
     }
 }
