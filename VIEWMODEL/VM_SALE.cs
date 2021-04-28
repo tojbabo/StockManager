@@ -13,6 +13,7 @@ namespace StockManager.VIEWMODEL
 
         public VM_SALE()
         {
+            
             items = new ObservableCollection<int>();
             items.Add(4);
             items.Add(4);

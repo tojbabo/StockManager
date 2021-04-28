@@ -14,26 +14,43 @@
             <ColumnDefinition Width="43*"/>
         </Grid.ColumnDefinitions>-->
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="0" ItemsSource="{Binding items}"
-                  HorizontalContentAlignment="Stretch" Margin="10,13,10,10">
+        <Grid Grid.Row="0" Background="White" Margin="10,10,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="품목" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Text="재고" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="2" Text="브랜드" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="가격" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        <ListView Grid.Row="1" ItemsSource="{Binding items}"
+                  HorizontalContentAlignment="Stretch" Margin="10,10,10,10">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" Text="{Binding name}" />
-                        <TextBox Grid.Column="1"  Text="{Binding name}"/>
+                        <TextBox Grid.Column="0" Text="{Binding materials}" />
+                        <TextBox Grid.Column="1"  Text="{Binding count}"/>
+                        <TextBox Grid.Column="2" Text="{Binding brand}" />
+                        <TextBox Grid.Column="3"  Text="{Binding m_price}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListView>
 
-        <Grid Grid.Row="1" Margin="10,0,10,10" >
+        <Grid Grid.Row="2" Margin="10,0,10,10" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -49,7 +66,8 @@
             <!--Click="Btn_Reset"-->
             <Button Grid.Column="3" Content="저장" Margin="0,0,10,0"/>
             <!-- Click="Btn_Save"--> 
-            <Button Grid.Column="4" Content="추가" Margin="0,0,10,0"/>
+            <Button Grid.Column="4" Content="추가" Click="Btn_ContentAdd" Margin="0,0,10,0"/>
+            <!--안에 내용 추가-->
         </Grid>
     </Grid>
 </Page>
