@@ -52,10 +52,10 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Margin="5" Height="20" Grid.Column="0" Text="{Binding name}" />
-                        <TextBlock Margin="5" Height="20" Grid.Column="2" Text="{Binding price}"/>
-                        <TextBlock Margin="5" Height="20" Grid.Column="4" Text=""/>
-                        <TextBlock Margin="5" Height="20" Grid.Column="6" Text=""/>
+                        <TextBlock Margin="5" Height="20" Grid.Column="0" Text="{Binding code}" />
+                        <TextBlock Margin="5" Height="20" Grid.Column="2" Text="{Binding category}"/>
+                        <TextBlock Margin="5" Height="20" Grid.Column="4" Text="{Binding name}"/>
+                        <TextBlock Margin="5" Height="20" Grid.Column="6" Text="{Binding price}"/>
 
                         <StackPanel Orientation="Horizontal" Grid.Column="1">
                             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"  />
@@ -88,7 +88,7 @@
 
 
             <TextBox Margin="5" Grid.Row="1" Grid.Column="0" x:Name="CATEGORY"/>
-            <TextBox Margin="5" Grid.Row="1" Grid.Column="1" x:Name="ITEM"/>
+            <TextBox Margin="5" Grid.Row="1" Grid.Column="1" x:Name="NAME"/>
             <TextBox Margin="5" Grid.Row="1" Grid.Column="2" x:Name="PRICE"/>
         </Grid>
         <Grid Grid.Row="3">

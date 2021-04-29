@@ -1,5 +1,6 @@
 ﻿using StockManager.ABSTRACT;
 using StockManager.MODEL;
+using StockManager.UTILITY;
 using StockManager.VIEW;
 using System;
 using System.Collections.Generic;
@@ -45,38 +46,62 @@ namespace StockManager.VIEWMODEL
             }
         }
         #endregion
-
+        private string path_product = @"db-product";
         WINDOWPRODUCT wp;
         public VM_SALE()
         {
             Sales = new ObservableCollection<Sale>();
+            Sales.Add(new Sale());
+            _productLoad();
         }
 
         public void ProductMODIFY()
         {
             if (wp == null)
+            {
                 wp = new WINDOWPRODUCT();
-
+                wp.Closed += (s, e) => ProductWindowClose();
+            }
+            wp.Focus();
             wp.Show();
-        }
 
+        }
+        private void ProductWindowClose()
+        {
+            wp.Closed -= (s, e) => ProductWindowClose(); 
+            wp = null;
+        }
         public void ListADD()
         {
             Sales.Add(new Sale());
         }
-
         public void ListSAVE()
         {
 
         }
-        public void f()
-        {
-            items.Add(1);
-        }
-
         public void ListRESET()
         {
             Sales.Clear();
         }
+
+        private void _productLoad()
+        {
+            var lines = FILE.read(path_product);
+
+            if (lines == null) return;
+
+            foreach (string line in lines)
+            {
+                var datas = line.Split(',');
+                products.Add(new Product
+                {
+                    code = datas[0],
+                    category = datas[1],
+                    name = datas[2],
+                    price = datas[3],
+                });
+            }
+        }
+
     }
 }

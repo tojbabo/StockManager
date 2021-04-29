@@ -33,22 +33,23 @@ namespace StockManager.VIEW
 
         private void Btn_Add(object sender, RoutedEventArgs e)
         {
-            vm.ListADD(new Product()
+            vm.ProductAdd(new Product()
             {
-                name = CATEGORY.Text,
+                category = CATEGORY.Text,
+                name = NAME.Text,
                 price = PRICE.Text
-
             }) ;
         }
 
         private void Btn_Del(object sender, RoutedEventArgs e)
         {
-
+            var items = listview.SelectedItems.Cast<Product>().ToList();
+            vm.ProductsDel(items);
         }
 
         private void Btn_Save(object sender, RoutedEventArgs e)
         {
-
+            vm.ProductsSave();
         }
     }
 }

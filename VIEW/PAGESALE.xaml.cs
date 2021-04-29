@@ -51,5 +51,13 @@ namespace StockManager.VIEW
         {
             vm.ProductMODIFY();
         }
+
+
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            vm.ListADD();
+
+        }
     }
 }

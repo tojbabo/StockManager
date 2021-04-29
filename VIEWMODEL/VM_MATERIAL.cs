@@ -33,6 +33,7 @@ namespace StockManager.VIEWMODEL
         }
         private void StuffWindowClose()
         {
+            ws.Closed -= (s, e) => StuffWindowClose();
             ws = null;
         }
 
