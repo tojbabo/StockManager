@@ -31,11 +31,6 @@ namespace StockManager.VIEW
             this.DataContext = vm;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            vm.addMaterial();
-        }
-
         private void Btn_MaterialModify(object sender, RoutedEventArgs e)
         {
 
@@ -56,10 +51,6 @@ namespace StockManager.VIEW
 
         }
 
-        private void Btn_Add(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Btn_MaterialInput(object sender, RoutedEventArgs e)
         {
@@ -79,6 +70,11 @@ namespace StockManager.VIEW
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void Btn_ContentAdd(object sender, RoutedEventArgs e)
+        {
+            vm.contentAdd();
         }
     }
 }

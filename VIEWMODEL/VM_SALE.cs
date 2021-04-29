@@ -69,6 +69,10 @@ namespace StockManager.VIEWMODEL
         {
 
         }
+        public void f()
+        {
+            items.Add(1);
+        }
 
         public void ListRESET()
         {
