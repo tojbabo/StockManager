@@ -30,14 +30,18 @@ namespace StockManager.VIEWMODEL
                 OnPropertyChanged(nameof(items));
             }
         }
+
         #endregion
 
         #region method
-        
+
+        private string path = @"db-stuff";
 
         public void StuffLoad() {
            
-            var lines = FILE.read(@"tt");
+            var lines = FILE.read(path);
+
+            if (lines == null) return;
 
             foreach(string line in lines)
             {
@@ -68,7 +72,7 @@ namespace StockManager.VIEWMODEL
             List<string> datas = new List<string>();
             foreach (Stuff s in items)
                 datas.Add(s.ToString());
-            FILE.write(@"tt",datas,false);
+            FILE.write(path,datas,false);
         }
         public void StuffDel(List<Stuff> datas)
         {

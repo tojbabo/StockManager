@@ -21,15 +21,17 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="one" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Column="1" Text="two" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Column="2" Text="three" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Column="3" Text="four" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="0" Text="Date" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Text="Product" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="2" Text="Price" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="Count" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="4" Text="Total" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
         </Grid>
         <ListBox Grid.Row="1" HorizontalContentAlignment="Stretch"
-                 ItemsSource="{Binding items}">
+                 ItemsSource="{Binding Sales}">
 
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
@@ -45,11 +47,13 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" Text="one" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <TextBox Grid.Column="1" Text="two" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <TextBox Grid.Column="2" Text="three" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <TextBox Grid.Column="3" Text="four" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Column="0" Text="{Binding date}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Column="1" Text="{Binding product.name}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Column="2" Text="{Binding product.price}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Column="3" Text="{Binding count}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Column="4" Text="{Binding total}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -66,10 +70,10 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Content="내용수정" Margin="0,0,5,0"/>
-            <Button Grid.Column="1" Content="품목수정" Margin="5,0,5,0"/>
-            <Button Grid.Column="2" Content="초기화" Margin="5,0,5,0"/>
-            <Button Grid.Column="3" Content="저장" Margin="5,0,5,0"/>
-            <Button Grid.Column="4" Content="추가" Margin="5,0,5,0"/>
+            <Button Grid.Column="1" Content="품목수정" Margin="5,0,5,0" Click="Btn_MODIFY"/>
+            <Button Grid.Column="2" Content="초기화" Margin="5,0,5,0" Click="Btn_RESET"/>
+            <Button Grid.Column="3" Content="저장" Margin="5,0,5,0" Click="Btn_SAVE"/>
+            <Button Grid.Column="4" Content="추가" Margin="5,0,5,0" Click="Btn_ADD"/>
         </Grid>
     </Grid>
 </Page>

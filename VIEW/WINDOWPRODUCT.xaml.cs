@@ -1,4 +1,5 @@
-﻿using StockManager.VIEWMODEL;
+﻿using StockManager.MODEL;
+using StockManager.VIEWMODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,45 +12,43 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace StockManager.VIEW
 {
     /// <summary>
-    /// PAGESALE.xaml에 대한 상호 작용 논리
+    /// WINDOWPRODUCT.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class PAGESALE : Page
+    public partial class WINDOWPRODUCT : Window
     {
         CORE core;
-        VM_SALE vm;
-        public PAGESALE()
+        VM_PRODUCT vm;
+        public WINDOWPRODUCT()
         {
             InitializeComponent();
             core = CORE.getCORE();
-            vm = core.GetSale();
-
+            vm = new VM_PRODUCT(core.GetSale());
             this.DataContext = vm;
         }
 
-        private void Btn_ADD(object sender, RoutedEventArgs e)
+        private void Btn_Add(object sender, RoutedEventArgs e)
         {
-            vm.ListADD();
+            vm.ListADD(new Product()
+            {
+                name = CATEGORY.Text,
+                price = PRICE.Text
+
+            }) ;
         }
 
-        private void Btn_SAVE(object sender, RoutedEventArgs e)
+        private void Btn_Del(object sender, RoutedEventArgs e)
         {
-            vm.ListSAVE();
+
         }
 
-        private void Btn_RESET(object sender, RoutedEventArgs e)
+        private void Btn_Save(object sender, RoutedEventArgs e)
         {
-            vm.ListRESET();
-        }
 
-        private void Btn_MODIFY(object sender, RoutedEventArgs e)
-        {
-            vm.ProductMODIFY();
         }
     }
 }

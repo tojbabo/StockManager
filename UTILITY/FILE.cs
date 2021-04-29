@@ -33,15 +33,22 @@ namespace StockManager.UTILITY
 
         public static List<string> read(string path)
         {
-            StreamReader file = new StreamReader(path);
-            List<string> datas = new List<string>();
-            string line;
-            while ((line = file.ReadLine()) != null)
+            try
             {
-                datas.Add(line);
+                StreamReader file = new StreamReader(path);
+                List<string> datas = new List<string>();
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+                    datas.Add(line);
+                }
+                file.Close();
+                return datas;
             }
-            file.Close();
-            return datas;
+            catch
+            {
+                return null;
+            }
         }
     }
 }

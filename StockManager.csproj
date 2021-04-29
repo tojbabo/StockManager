@@ -59,6 +59,8 @@
     <Compile Include="ABSTRACT\CONVERTERMULTI.cs" />
     <Compile Include="MODEL\ListData.cs" />
     <Compile Include="MODEL\Material.cs" />
+    <Compile Include="MODEL\Product.cs" />
+    <Compile Include="MODEL\Sale.cs" />
     <Compile Include="MODEL\Stuff.cs" />
     <Compile Include="UTILITY\FILE.cs" />
     <Compile Include="VIEWMODEL\CORE.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="VIEWMODEL\VM_FRAME.cs" />
     <Compile Include="VIEWMODEL\VM_MATERIAL.cs" />
     <Compile Include="VIEWMODEL\VM_INPUT_TEST.cs" />
+    <Compile Include="VIEWMODEL\VM_PRODUCT.cs" />
     <Compile Include="VIEWMODEL\VM_SALE.cs" />
     <Compile Include="VIEWMODEL\VM_STUFF.cs" />
     <Compile Include="VIEW\FRAMEMAIN.xaml.cs">
@@ -84,6 +87,9 @@
     <Compile Include="VIEW\PAGESALE.xaml.cs">
       <DependentUpon>PAGESALE.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\WINDOWPRODUCT.xaml.cs">
+      <DependentUpon>WINDOWPRODUCT.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\WINDOWSTUFF.xaml.cs">
       <DependentUpon>WINDOWSTUFF.xaml</DependentUpon>
     </Compile>
@@ -100,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VIEW\PAGESALE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VIEW\WINDOWPRODUCT.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
