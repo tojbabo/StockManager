@@ -16,7 +16,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" >
+        <Grid Grid.Row="0"  Background="SkyBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -31,7 +31,7 @@
             <TextBlock Grid.Column="4" Text="Total" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
         </Grid>
-        <ListBox Grid.Row="1" HorizontalContentAlignment="Stretch"
+        <ListBox x:Name="listbox" Grid.Row="1" HorizontalContentAlignment="Stretch"
                  ItemsSource="{Binding Sales}">
 
             <ListBox.ItemContainerStyle>
@@ -42,7 +42,7 @@
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid x:Name="gooood">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
@@ -52,7 +52,7 @@
                         </Grid.ColumnDefinitions>
                         
                         <TextBox Grid.Column="0" Text="{Binding date}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <ComboBox Grid.Column="1" ItemsSource="{Binding products}"
+                        <ComboBox Grid.Column="1" Name="combo" ItemsSource="{Binding products}"
                                   DisplayMemberPath="name" SelectionChanged="ComboBox_SelectionChanged">
                             <ComboBox.DataContext >
                                 <vm:VM_SALE/>
@@ -80,7 +80,7 @@
             <Button Grid.Column="1" Content="품목수정" Margin="5,0,5,0" Click="Btn_MODIFY"/>
             <Button Grid.Column="2" Content="초기화" Margin="5,0,5,0" Click="Btn_RESET"/>
             <Button Grid.Column="3" Content="저장" Margin="5,0,5,0" Click="Btn_SAVE"/>
-            <Button Grid.Column="4" Content="추가" Margin="5,0,5,0" Click="Btn_ADD"/>
+            <Button Grid.Column="4" Content="추가" Margin="5,0,5,0" Click="Btn_ADD" IsEnabled="False"/>
         </Grid>
     </Grid>
 </Page>

@@ -9,8 +9,8 @@ namespace StockManager.MODEL
     public class Sale
     {
         public string date { get; set; }
-        public Product product { get; set; }
         public string count { get; set; }
         public string total { get; set; }
+        public Product product { get; set; }
     }
 }

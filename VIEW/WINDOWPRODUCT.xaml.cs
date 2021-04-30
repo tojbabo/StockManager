@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -37,19 +38,32 @@ namespace StockManager.VIEW
             {
                 category = CATEGORY.Text,
                 name = NAME.Text,
-                price = PRICE.Text
-            }) ;
+                price = Convert.ToInt32(PRICE.Text),
+                comment = COMMENT.Text
+            });
         }
 
         private void Btn_Del(object sender, RoutedEventArgs e)
         {
-            var items = listview.SelectedItems.Cast<Product>().ToList();
+            var items = listbox.SelectedItems.Cast<Product>().ToList();
             vm.ProductsDel(items);
         }
 
         private void Btn_Save(object sender, RoutedEventArgs e)
         {
             vm.ProductsSave();
+        }
+
+        /// <summary>
+        /// price에 숫자만 입력되도록 
+        /// 입력할때 마다 숫자인지 아닌지 검사
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PriceTextInputEvent(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+"); 
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
