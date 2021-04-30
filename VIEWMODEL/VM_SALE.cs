@@ -45,31 +45,30 @@ namespace StockManager.VIEWMODEL
                 OnPropertyChanged(nameof(products));
             }
         }
+
         #endregion
-        private string path_product = @"db-product";
+        public string path_product = @"db-product";
         WINDOWPRODUCT wp;
         public VM_SALE()
         {
             Sales = new ObservableCollection<Sale>();
             Sales.Add(new Sale());
-            _productLoad();
+            productLoad();
         }
 
+        /// <summary>
+        /// 수정 버튼 클릭 이벤트 처리
+        /// </summary>
         public void ProductMODIFY()
         {
             if (wp == null)
             {
                 wp = new WINDOWPRODUCT();
-                wp.Closed += (s, e) => ProductWindowClose();
+                wp.Closed += (s, e) => ProductWindowClose();                // 자식 윈도우 종료이벤트 추가
             }
             wp.Focus();
             wp.Show();
 
-        }
-        private void ProductWindowClose()
-        {
-            wp.Closed -= (s, e) => ProductWindowClose(); 
-            wp = null;
         }
         public void ListADD()
         {
@@ -82,10 +81,16 @@ namespace StockManager.VIEWMODEL
         public void ListRESET()
         {
             Sales.Clear();
+            Sales.Add(new Sale());
         }
 
-        private void _productLoad()
+        /// <summary>
+        /// 파일 읽어서 컬렉션에 추가하는 함수
+        /// </summary>
+        public void productLoad()
         {
+            products.Clear();
+
             var lines = FILE.read(path_product);
 
             if (lines == null) return;
@@ -98,9 +103,20 @@ namespace StockManager.VIEWMODEL
                     code = datas[0],
                     category = datas[1],
                     name = datas[2],
-                    price = datas[3],
+                    price = Convert.ToInt32(datas[3]),
+                    comment = datas[4]
                 });
             }
+        }
+        
+        /// <summary>
+        /// ProductWindow의 종료 이벤트
+        /// </summary>
+        private void ProductWindowClose()
+        {
+            wp.Closed -= (s, e) => ProductWindowClose();                    // 없어도 되는 코드,, 혹시몰라서 사용
+                                                                            // 자식 윈도우의 종료 이벤트 중복 방지
+            wp = null;
         }
 
     }

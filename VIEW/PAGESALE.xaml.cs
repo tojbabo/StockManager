@@ -1,4 +1,5 @@
-﻿using StockManager.VIEWMODEL;
+﻿using StockManager.MODEL;
+using StockManager.VIEWMODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,11 +54,58 @@ namespace StockManager.VIEW
         }
 
 
-
+        /// <summary>
+        /// 콤보 박스선택 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            vm.ListADD();
+            /*var v = sender as ComboBox;
+            var d = (Grid)v.Parent;                     // 여기까진 맞다
+            
+            var s = (ListBox)d.Parent;
+            int num = listbox.Items.IndexOf(s);
+*/
+            for(int i = 0; i < listbox.Items.Count; i++)
+            {
+                ListBoxItem lbx = (ListBoxItem)listbox.ItemContainerGenerator.ContainerFromItem(listbox.Items[i]);
+                ContentPresenter con = FindVisualChild<ContentPresenter>(lbx);
 
+                DataTemplate d = con.ContentTemplate;
+
+                ComboBox b = (ComboBox)d.FindName("combo", con);
+
+                var z = (Product)b.SelectedItem;
+
+
+            }
+
+
+            vm.ListADD();
+        }
+        private ChildControl FindVisualChild<ChildControl>(DependencyObject DependencyObj)
+        where ChildControl : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(DependencyObj); i++)
+            {
+                DependencyObject Child = VisualTreeHelper.GetChild(DependencyObj, i);
+
+                if (Child != null && Child is ChildControl)
+                {
+                    return (ChildControl)Child;
+                }
+                else
+                {
+                    ChildControl ChildOfChild = FindVisualChild<ChildControl>(Child);
+
+                    if (ChildOfChild != null)
+                    {
+                        return ChildOfChild;
+                    }
+                }
+            }
+            return null;
         }
     }
 }

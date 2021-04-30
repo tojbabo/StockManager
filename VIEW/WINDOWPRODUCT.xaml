@@ -19,6 +19,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" BorderThickness="0.2" BorderBrush="Gray">
                 <TextBlock  Text="코드" VerticalAlignment="Center"
@@ -36,9 +37,13 @@
                 <TextBlock  Text="가격" VerticalAlignment="Center"
                              HorizontalAlignment="Center"/>
             </Border>
+            <Border Grid.Column="4" BorderThickness="0.2" BorderBrush="Gray">
+                <TextBlock  Text="비고" VerticalAlignment="Center"
+                             HorizontalAlignment="Center"/>
+            </Border>
 
         </Grid>
-        <ListView x:Name="listview" Grid.Row="1" ItemsSource="{Binding products}"
+        <ListView x:Name="listbox" Grid.Row="1" ItemsSource="{Binding products}"
                   HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -51,11 +56,14 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Margin="5" Height="20" Grid.Column="0" Text="{Binding code}" />
                         <TextBlock Margin="5" Height="20" Grid.Column="2" Text="{Binding category}"/>
                         <TextBlock Margin="5" Height="20" Grid.Column="4" Text="{Binding name}"/>
                         <TextBlock Margin="5" Height="20" Grid.Column="6" Text="{Binding price}"/>
+                        <TextBlock Margin="5" Height="20" Grid.Column="8" Text="{Binding comment}"/>
 
                         <StackPanel Orientation="Horizontal" Grid.Column="1">
                             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"  />
@@ -64,6 +72,9 @@
                             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Column="5">
+                            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Column="7">
                             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
                         </StackPanel>
                     </Grid>
@@ -79,17 +90,20 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="항목" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="품목" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <TextBlock Grid.Row="0" Grid.Column="2" Text="가격" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="3" Text="비고" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
 
 
-            <TextBox Margin="5" Grid.Row="1" Grid.Column="0" x:Name="CATEGORY"/>
+            <TextBox Margin="5" Grid.Row="1" Grid.Column="0" x:Name="CATEGORY" ToolTip="good"/>
             <TextBox Margin="5" Grid.Row="1" Grid.Column="1" x:Name="NAME"/>
-            <TextBox Margin="5" Grid.Row="1" Grid.Column="2" x:Name="PRICE"/>
+            <TextBox Margin="5" Grid.Row="1" Grid.Column="2" x:Name="PRICE" PreviewTextInput="PriceTextInputEvent"/>
+            <TextBox Margin="5" Grid.Row="1" Grid.Column="3" x:Name="COMMENT"/>
         </Grid>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
