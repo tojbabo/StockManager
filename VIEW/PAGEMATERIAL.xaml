@@ -64,7 +64,7 @@
             <Button Grid.Column="1" Content="품목수정" Click="Btn_StuffModify" Margin="0,0,10,0"/>
             <Button Grid.Column="2" Content="초기화"  Margin="0,0,10,0"/>
             <!--Click="Btn_Reset"-->
-            <Button Grid.Column="3" Content="저장" Margin="0,0,10,0"/>
+            <Button Grid.Column="3" Content="저장" Margin="0,0,10,0" Click="Btn_Save"/>
             <!-- Click="Btn_Save"--> 
             <Button Grid.Column="4" Content="추가" Click="Btn_ContentAdd" Margin="0,0,10,0"/>
             <!--안에 내용 추가-->

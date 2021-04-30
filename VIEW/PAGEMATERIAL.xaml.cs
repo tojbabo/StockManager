@@ -29,6 +29,7 @@ namespace StockManager.VIEW
             core = CORE.getCORE();
             vm = core.GetMaterial();
             this.DataContext = vm;
+            vm.LoadContent();
         }
 
         private void Btn_MaterialModify(object sender, RoutedEventArgs e)
@@ -48,7 +49,7 @@ namespace StockManager.VIEW
 
         private void Btn_Save(object sender, RoutedEventArgs e)
         {
-
+            vm.ContentSave();
         }
 
 

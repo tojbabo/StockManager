@@ -10,13 +10,7 @@ namespace StockManager.MODEL
     public class MaterialList : ObservableCollection<Material> { }
     public class Material
     {
-        public Material(string materials, int count, string brand, string m_price)
-        {
-            this.materials = materials;
-            this.count = count;
-            this.brand = brand;
-            this.m_price = m_price;
-        }
+        public Material(){}
         public string materials { get; set; }
         public int count { get; set; }
         public string brand { get; set; }
