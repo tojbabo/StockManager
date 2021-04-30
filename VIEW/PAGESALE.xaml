@@ -52,15 +52,14 @@
                         </Grid.ColumnDefinitions>
                         
                         <TextBox Grid.Column="0" Text="{Binding date}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <ComboBox Grid.Column="1" Name="combo" ItemsSource="{Binding products}"
+                        <ComboBox Grid.Column="1" Name="combo" ItemsSource="{Binding products }"
                                   DisplayMemberPath="name" SelectionChanged="ComboBox_SelectionChanged">
                             <ComboBox.DataContext >
                                 <vm:VM_SALE/>
                             </ComboBox.DataContext>
                         </ComboBox>
-                        <TextBox Grid.Column="2" Text="{Binding product.price}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <TextBox Grid.Column="3" Text="{Binding count}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <TextBox Grid.Column="4" Text="{Binding total}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Column="2" Text="{Binding product.price}" VerticalAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
+                        <TextBox Grid.Column="3" Text="{Binding total}" VerticalAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

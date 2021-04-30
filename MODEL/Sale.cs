@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using StockManager.ABSTRACT;
 
 namespace StockManager.MODEL
 {
-    public class Sale
+    public class Sale  : PROPERTIES
     {
         public string date { get; set; }
-        public string count { get; set; }
-        public string total { get; set; }
-        public Product product { get; set; }
+        public int count { get; set; }
+        public int total { get; set; }
+        private Product _p;
+        public Product product
+        {
+            get => _p;
+            set
+            {
+                _p = value;
+                OnPropertyChanged(nameof(product));
+            }
+        }
     }
 }

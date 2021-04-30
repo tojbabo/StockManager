@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace StockManager.ABSTRACT
 {
-    public abstract class VM : INotifyPropertyChanged
+    public abstract class VM : PROPERTIES
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
   
 }

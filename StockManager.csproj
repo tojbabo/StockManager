@@ -57,12 +57,14 @@
     </ApplicationDefinition>
     <Compile Include="ABSTRACT\CONVERTER.cs" />
     <Compile Include="ABSTRACT\CONVERTERMULTI.cs" />
+    <Compile Include="ABSTRACT\PROPERTIES.cs" />
     <Compile Include="MODEL\ListData.cs" />
     <Compile Include="MODEL\Material.cs" />
     <Compile Include="MODEL\Product.cs" />
     <Compile Include="MODEL\Sale.cs" />
     <Compile Include="MODEL\Stuff.cs" />
     <Compile Include="UTILITY\FILE.cs" />
+    <Compile Include="UTILITY\LISTBOX.cs" />
     <Compile Include="VIEWMODEL\CORE.cs" />
     <Compile Include="ABSTRACT\VM.cs" />
     <Compile Include="VIEWMODEL\VM_FRAME.cs" />

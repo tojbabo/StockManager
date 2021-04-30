@@ -1,9 +1,11 @@
 ﻿using StockManager.MODEL;
+using StockManager.UTILITY;
 using StockManager.VIEWMODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -61,51 +63,27 @@ namespace StockManager.VIEW
         /// <param name="e"></param>
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            /*var v = sender as ComboBox;
-            var d = (Grid)v.Parent;                     // 여기까진 맞다
-            
-            var s = (ListBox)d.Parent;
-            int num = listbox.Items.IndexOf(s);
-*/
-            for(int i = 0; i < listbox.Items.Count; i++)
-            {
-                ListBoxItem lbx = (ListBoxItem)listbox.ItemContainerGenerator.ContainerFromItem(listbox.Items[i]);
-                ContentPresenter con = FindVisualChild<ContentPresenter>(lbx);
+            var combobox = sender as ComboBox;
 
-                DataTemplate d = con.ContentTemplate;
+            var num = LISTBOX.GetItemfromControl<ComboBox>(listbox, combobox, "combo");             /// 정말 중요한 코드
+                                                                                                    /// 리스트박스 > 리스트박스 아이템 > 특정 컨트롤
+                                                                                                    /// 이벤트가 발생한 특정 컨트롤로부터
+                                                                                                    /// 해당 컨트롤을 갖고있는 리스트박스 아이템을 얻어냄
+            var parentsObj = (Sale)num.DataContext;
 
-                ComboBox b = (ComboBox)d.FindName("combo", con);
+            parentsObj.product = (Product)combobox.SelectedItem;                                    /// 해당 리스트박스 아이템에 선택된 콤보박스 아이템을 입력함
 
-                var z = (Product)b.SelectedItem;
-
-
-            }
 
 
             vm.ListADD();
         }
-        private ChildControl FindVisualChild<ChildControl>(DependencyObject DependencyObj)
-        where ChildControl : DependencyObject
+
+        private void PriceTextInputEvent(object sender, TextCompositionEventArgs e)
         {
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(DependencyObj); i++)
-            {
-                DependencyObject Child = VisualTreeHelper.GetChild(DependencyObj, i);
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
 
-                if (Child != null && Child is ChildControl)
-                {
-                    return (ChildControl)Child;
-                }
-                else
-                {
-                    ChildControl ChildOfChild = FindVisualChild<ChildControl>(Child);
-
-                    if (ChildOfChild != null)
-                    {
-                        return ChildOfChild;
-                    }
-                }
-            }
-            return null;
+           
         }
     }
 }

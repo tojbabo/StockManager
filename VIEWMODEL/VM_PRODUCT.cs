@@ -44,6 +44,7 @@ namespace StockManager.VIEWMODEL
 
         public void ProductsSave()
         {
+
             List<string> datas = new List<string>();
             foreach (var v in products)
                 datas.Add(v.ToString());
