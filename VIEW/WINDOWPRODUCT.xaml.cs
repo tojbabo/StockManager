@@ -41,6 +41,11 @@ namespace StockManager.VIEW
                 price = Convert.ToInt32(PRICE.Text),
                 comment = COMMENT.Text
             });
+
+            CATEGORY.Text = "";
+            NAME.Text = "";
+            PRICE.Text = "";
+            COMMENT.Text = "";
         }
 
         private void Btn_Del(object sender, RoutedEventArgs e)
@@ -65,5 +70,18 @@ namespace StockManager.VIEW
             Regex regex = new Regex("[^0-9]+"); 
             e.Handled = regex.IsMatch(e.Text);
         }
+
+
+        #region design event
+        private void Button_EXIT(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void GridMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+        #endregion
     }
 }

@@ -3,26 +3,77 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:StockManager.VIEW"
-        mc:Ignorable="d"
-        Title="MAINFRAME" Height="450" Width="800">
-    <Grid>
+        mc:Ignorable="d" BorderBrush="#b9ac92" BorderThickness="0.5"
+        Title="MAINFRAME" Height="650" Width="1100"  WindowStyle="None" ResizeMode="CanResizeWithGrip"
+         Background="#fbe6d4" Padding="0" >
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+        CaptionHeight="0"
+        ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+    <Grid >
+        
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="7*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="Blue">
+
+        <Grid Grid.Row="0" Background="#ffa931" MouseLeftButtonDown="GridMouseDown" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="#b9ac92" />
+            <Grid Grid.Column="1" Background="#ffa931" />
+            <Grid Grid.Column="2" Background="#fecb89" />
+            <Grid Grid.Column="3" Background="#fbe6d4" />
+
+            <TextBlock MouseDown="DoubleClick" Grid.Column="4"></TextBlock>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0" Grid.Column="4">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                        Width="25" Height="25" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}"
+                        Click="Button_Minimize">
+                    <materialDesign:PackIcon Kind="Minus"/>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                        Width="25" Height="25" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}"
+                        Click="Button_Maximize">
+                    <materialDesign:PackIcon Kind="ArrangeBringForward"/>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                        Width="25" Height="25" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}"
+                        Click="Button_EXIT">
+                    <materialDesign:PackIcon Kind="Close"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+
+
+        <Grid Grid.Row="1" Background="#fbe6d4" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="2" Content="재료" Click="Btn_Material"/>
-            <Button Grid.Column="3" Content="판매" Click="Btn_Sale"/>
-            <Button Grid.Column="4" Content="참고용" Click="Btn_Input"/>
+            <Button x:Name="btn_material" Grid.Column="3" Content="재료" Click="Btn_Click"
+                    Background="#fecb89" Height="auto" BorderBrush="{x:Null}" BorderThickness="0" />
+            <Button x:Name="btn_sale" Grid.Column="4" Content="판매" Click="Btn_Click" 
+                    Background="#fecb89" Height="auto" BorderBrush="{x:Null}" BorderThickness="0" />
+            <Button x:Name="btn_test" Grid.Column="5" Content="참고용" Click="Btn_Click" 
+                    Background="#fecb89" Height="auto" BorderBrush="{x:Null}" BorderThickness="0" />
         </Grid>
-        <Frame Grid.Row="1" x:Name="FRAME" NavigationUIVisibility="Hidden"/>
+        <Frame Grid.Row="2" x:Name="FRAME" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

@@ -30,6 +30,7 @@ namespace StockManager.VIEWMODEL
                 OnPropertyChanged(nameof(Sales));
             }
         }
+
         private ObservableCollection<Product> _products;
         public ObservableCollection<Product> products
         {
@@ -48,6 +49,7 @@ namespace StockManager.VIEWMODEL
 
         #endregion
         public string path_product = @"db-product";
+        public string path_sale = @"db-sales";
         WINDOWPRODUCT wp;
         public VM_SALE()
         {
@@ -76,7 +78,13 @@ namespace StockManager.VIEWMODEL
         }
         public void ListSAVE()
         {
-
+            List<string> datas = new List<string>();
+            foreach (var v in Sales)
+            {
+                if (v.product == null) continue;
+                datas.Add(v.ToString());
+            }
+            FILE.write(path_sale, datas, false);
         }
         public void ListRESET()
         {
@@ -107,8 +115,38 @@ namespace StockManager.VIEWMODEL
                     comment = datas[4]
                 });
             }
+
         }
-        
+
+        public void ListLoad()
+        {
+            Sales.Clear();
+
+            var lines = FILE.read(path_sale);
+
+            if (lines == null) return;
+
+            foreach (string line in lines)
+            {
+                var datas = line.Split(',');
+                Sales.Add(new Sale
+                {
+                    date = datas[0],
+                    count = Convert.ToInt32(datas[1]),
+                    total = Convert.ToInt32(datas[2]),
+                    product = new Product()
+                    {
+                        code = datas[3],
+                        category = datas[4],
+                        name =datas[5],
+                        price = Convert.ToInt32(datas[6]),
+                        comment = datas[7],
+                    }
+                });
+            }
+            ListADD();
+        }
+
         /// <summary>
         /// ProductWindow의 종료 이벤트
         /// </summary>

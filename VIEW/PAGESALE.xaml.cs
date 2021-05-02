@@ -74,6 +74,7 @@ namespace StockManager.VIEW
             parentsObj.product = (Product)combobox.SelectedItem;                                    /// 해당 리스트박스 아이템에 선택된 콤보박스 아이템을 입력함
 
 
+            
 
             vm.ListADD();
         }
@@ -84,6 +85,22 @@ namespace StockManager.VIEW
             e.Handled = regex.IsMatch(e.Text);
 
            
+        }
+
+        private void DatePicker_SelectinoChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var datepicker = sender as DatePicker;
+
+            var listboxitem = LISTBOX.GetItemfromControl<DatePicker>(listbox, datepicker, "datepicker");
+
+            var parentsObj = (Sale)listboxitem.DataContext;
+
+            parentsObj.date = datepicker.SelectedDate.ToString();
+        }
+
+        private void Btn_Load(object sender, RoutedEventArgs e)
+        {
+            vm.ListLoad();
         }
     }
 }

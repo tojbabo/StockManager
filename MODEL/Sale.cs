@@ -2,10 +2,20 @@
 
 namespace StockManager.MODEL
 {
-    public class Sale  : PROPERTIES
+    public class Sale : PROPERTIES
     {
         public string date { get; set; }
-        public int count { get; set; }
+        private int _count;
+        public int count
+        {
+            get => _count;
+            set
+            {
+                _count = value;
+                total = count * ((product != null) ? product.price : 0);
+                OnPropertyChanged(nameof(total));
+            }
+        }
         public int total { get; set; }
         private Product _p;
         public Product product
@@ -16,6 +26,11 @@ namespace StockManager.MODEL
                 _p = value;
                 OnPropertyChanged(nameof(product));
             }
+        }
+
+        public new string ToString()
+        {
+            return $"{date},{count},{total},{product.ToString()}";
         }
     }
 }

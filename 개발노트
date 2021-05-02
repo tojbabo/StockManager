@@ -1,17 +1,21 @@
-2021-04-30-
+2021-05-02
+::TOJ
+ >> 디자인 조금
+ >> DatePicker 추가. 저장 및 읽기에 정상 구현
+ >> 
+
+2021-04-30
 ::TOJ
 <sale page>
  * sale page 내 listbox의 itemsource는 sales를 바인딩 
  * listbox 내 combobox는 products를 바인딩 (sale 객체는 product 객체를 포함)
  * products 에서 선택된 product가 sale 객체의 멤버변수 product로 저장되어야함 
- ==> 이벤트가 발생한 combobox를 포함된 listboxitem을 반환하는 함수 구현.
+ >> 이벤트가 발생한 combobox를 포함된 listboxitem을 반환하는 함수 구현.
     얻어낸 listboxitem이 바인딩 하는 객체의 멤버변수에 combobox의 selecteditem 저장. 
  
  * products 컬렉션을 최초 실행시에만 파일로 부터 읽어옴
  * 중간에 파일 내용이 바뀌어도 products에 반영이 되지 않음
- ==> product window의 save 이벤트(파일이 수정되는 시점)가 실행될때 파일 읽기를 다시 실행.
-
-
+ >> product window의 save 이벤트(파일이 수정되는 시점)가 실행될때 파일 읽기를 다시 실행.
 
 ::SJH
 1차.

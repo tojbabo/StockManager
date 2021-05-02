@@ -5,6 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:StockManager.VIEW" 
       xmlns:vm="clr-namespace:StockManager.VIEWMODEL"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+      xmlns:util="clr-namespace:StockManager.UTILITY.CONVERTER"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PAGESALE">
@@ -14,9 +16,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0"  Background="SkyBlue">
+        <Grid Grid.Row="0"  Background="#b9ac92">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -24,11 +26,11 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Date" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Column="1" Text="Product" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Column="2" Text="Price" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Column="3" Text="Count" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Column="4" Text="Total" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="0" Text="Date" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Text="Product" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="2" Text="Price" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="Count" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="4" Text="Total" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
         </Grid>
         <ListBox x:Name="listbox" Grid.Row="1" HorizontalContentAlignment="Stretch"
@@ -42,7 +44,7 @@
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid x:Name="gooood">
+                    <Grid Height="40">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
@@ -50,23 +52,33 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        
-                        <TextBox Grid.Column="0" Text="{Binding date}" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <ComboBox Grid.Column="1" Name="combo" ItemsSource="{Binding products }"
+
+                        <DatePicker x:Name="datepicker" Grid.Column="0" Width="100" SelectedDate="{Binding date, Converter={util:DateConverter}}"
+                                    VerticalAlignment="Center" HorizontalAlignment="Center" SelectedDateChanged="DatePicker_SelectinoChanged"/>
+                        <!--
+                        <TextBox Grid.Column="0" Text="{Binding date}" Width="100" SelectionBrush="#fecb89"
+                                 VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        -->
+                        <ComboBox Grid.Column="1" Name="combo" ItemsSource="{Binding products }" Width="100"
+                                  
                                   DisplayMemberPath="name" SelectionChanged="ComboBox_SelectionChanged">
                             <ComboBox.DataContext >
                                 <vm:VM_SALE/>
                             </ComboBox.DataContext>
                         </ComboBox>
-                        <TextBox Grid.Column="2" Text="{Binding product.price}" VerticalAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
-                        <TextBox Grid.Column="3" Text="{Binding total}" VerticalAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
+                        <TextBox Grid.Column="2" Text="{Binding product.price}" Width="100"
+                                 VerticalAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
+                        <TextBox Grid.Column="3" Text="{Binding count}" Width="100" SelectionBrush="#fecb89"
+                                 VerticalAlignment="Center" HorizontalContentAlignment="Center" />
+                        <TextBox Grid.Column="4" Text="{Binding total}" Width="100" SelectionBrush="#fecb89"
+                                 VerticalAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
             
         </ListBox>
 
-        <Grid Grid.Row="2"  Margin="10">
+        <Grid Grid.Row="2" Background="#fecb89">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -75,11 +87,16 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="내용수정" Margin="0,0,5,0"/>
-            <Button Grid.Column="1" Content="품목수정" Margin="5,0,5,0" Click="Btn_MODIFY"/>
-            <Button Grid.Column="2" Content="초기화" Margin="5,0,5,0" Click="Btn_RESET"/>
-            <Button Grid.Column="3" Content="저장" Margin="5,0,5,0" Click="Btn_SAVE"/>
-            <Button Grid.Column="4" Content="추가" Margin="5,0,5,0" Click="Btn_ADD" IsEnabled="False"/>
+            <Button Grid.Column="0" Content="내용수정" Click="Btn_Load"
+                    Width="auto" Height="auto" Background="{x:Null}" BorderThickness="0"/>
+            <Button Grid.Column="1" Content="품목수정"  Click="Btn_MODIFY"
+                    Width="auto" Height="auto" Background="{x:Null}" BorderThickness="0"/>
+            <Button Grid.Column="2" Content="초기화"  Click="Btn_RESET"
+                    Width="auto" Height="auto" Background="{x:Null}" BorderThickness="0"/>
+            <Button Grid.Column="3" Content="저장" Click="Btn_SAVE"
+                    Width="auto" Height="auto" Background="{x:Null}" BorderThickness="0"/>
+            <Button Grid.Column="4" Content="추가" Click="Btn_ADD" IsEnabled="False"
+                    Width="auto" Height="auto" Background="{x:Null}" BorderThickness="0"/>
         </Grid>
     </Grid>
 </Page>
