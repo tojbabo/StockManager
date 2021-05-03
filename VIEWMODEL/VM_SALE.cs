@@ -105,7 +105,9 @@ namespace StockManager.VIEWMODEL
 
             foreach (string line in lines)
             {
-                var datas = line.Split(',');
+                try
+                {
+                    var datas = line.Split(',');
                 products.Add(new Product
                 {
                     code = datas[0],
@@ -114,6 +116,8 @@ namespace StockManager.VIEWMODEL
                     price = Convert.ToInt32(datas[3]),
                     comment = datas[4]
                 });
+                }
+                catch { continue; }
             }
 
         }
@@ -128,21 +132,25 @@ namespace StockManager.VIEWMODEL
 
             foreach (string line in lines)
             {
-                var datas = line.Split(',');
-                Sales.Add(new Sale
+                try
                 {
-                    date = datas[0],
-                    count = Convert.ToInt32(datas[1]),
-                    total = Convert.ToInt32(datas[2]),
-                    product = new Product()
+                    var datas = line.Split(',');
+                    Sales.Add(new Sale
                     {
-                        code = datas[3],
-                        category = datas[4],
-                        name =datas[5],
-                        price = Convert.ToInt32(datas[6]),
-                        comment = datas[7],
-                    }
-                });
+                        date = datas[0],
+                        count = datas[1],
+                        total = Convert.ToInt32(datas[2]),
+                        product = new Product()
+                        {
+                            code = datas[3],
+                            category = datas[4],
+                            name = datas[5],
+                            price = Convert.ToInt32(datas[6]),
+                            comment = datas[7],
+                        }
+                    });
+                }
+                catch { continue; }
             }
             ListADD();
         }

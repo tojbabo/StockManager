@@ -60,8 +60,7 @@
                                  VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
                         -->
                         <ComboBox Grid.Column="1" Name="combo" ItemsSource="{Binding products }" Width="100"
-                                  
-                                  DisplayMemberPath="name" SelectionChanged="ComboBox_SelectionChanged">
+                                  DisplayMemberPath="name" SelectionChanged="ComboBox_SelectionChanged" >
                             <ComboBox.DataContext >
                                 <vm:VM_SALE/>
                             </ComboBox.DataContext>

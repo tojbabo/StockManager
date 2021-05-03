@@ -5,14 +5,14 @@ namespace StockManager.MODEL
     public class Sale : PROPERTIES
     {
         public string date { get; set; }
-        private int _count;
-        public int count
+        private string _count;
+        public string count
         {
             get => _count;
             set
             {
                 _count = value;
-                total = count * ((product != null) ? product.price : 0);
+                total = ((count!="")?System.Convert.ToInt32(_count):0) * ((product != null) ? product.price : 0);
                 OnPropertyChanged(nameof(total));
             }
         }
