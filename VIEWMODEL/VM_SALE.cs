@@ -74,6 +74,7 @@ namespace StockManager.VIEWMODEL
         }
         public void ListADD()
         {
+            if (Sales.Count != 0 && Sales.Last().product == null) return;
             Sales.Add(new Sale());
         }
         public void ListSAVE()
@@ -122,7 +123,7 @@ namespace StockManager.VIEWMODEL
 
         }
 
-        public void ListLoad()
+        public void SalesLoad()
         {
             Sales.Clear();
 
@@ -137,16 +138,15 @@ namespace StockManager.VIEWMODEL
                     var datas = line.Split(',');
                     Sales.Add(new Sale
                     {
-                        date = datas[0],
-                        count = datas[1],
-                        total = Convert.ToInt32(datas[2]),
+                        count = datas[0],
+                        total = Convert.ToInt32(datas[1]),
                         product = new Product()
                         {
-                            code = datas[3],
-                            category = datas[4],
-                            name = datas[5],
-                            price = Convert.ToInt32(datas[6]),
-                            comment = datas[7],
+                            code = datas[2],
+                            category = datas[3],
+                            name = datas[4],
+                            price = Convert.ToInt32(datas[5]),
+                            comment = datas[6],
                         }
                     });
                 }

@@ -49,5 +49,17 @@ namespace StockManager.VIEW
 
             vm.StuffDel(items);
         }
+
+        #region design event
+        private void Button_EXIT(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void GridMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+        #endregion
     }
 }

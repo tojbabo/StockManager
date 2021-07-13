@@ -34,6 +34,26 @@ namespace StockManager.UTILITY
             }
             return null;
         }
+
+        
+        /// <summary>
+        /// 리스트박스 아이템에서 특정 컨트롤을 찾아오는 함수
+        /// </summary>
+        /// <typeparam name="T">찾을 콘트롤의 종류</typeparam>
+        /// <param name="item">콘트롤이 포함된 리스트박스 아이템</param>
+        /// <param name="controlname">콘트롤의 이름</param>
+        /// <returns>찾은 콘트롤</returns>
+        public static T GetControlfromItem<T>(ListBoxItem item, string controlname)
+        {
+            ContentPresenter content = FindVisualChild<ContentPresenter>(item);
+
+            DataTemplate dtemplate = content.ContentTemplate;
+
+            T temp = (T)dtemplate.FindName(controlname, content);
+
+            return temp;
+
+        }
         private static ChildControl FindVisualChild<ChildControl>(DependencyObject DependencyObj)
         where ChildControl : DependencyObject
         {

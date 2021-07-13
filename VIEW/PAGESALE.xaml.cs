@@ -33,6 +33,7 @@ namespace StockManager.VIEW
             vm = core.GetSale();
 
             this.DataContext = vm;
+            datepicker.SelectedDate = DateTime.Today;
         }
 
         private void Btn_ADD(object sender, RoutedEventArgs e)
@@ -74,8 +75,6 @@ namespace StockManager.VIEW
             parentsObj.product = (Product)combobox.SelectedItem;                                    /// 해당 리스트박스 아이템에 선택된 콤보박스 아이템을 입력함
 
 
-            
-
             vm.ListADD();
         }
 
@@ -90,17 +89,16 @@ namespace StockManager.VIEW
         private void DatePicker_SelectinoChanged(object sender, SelectionChangedEventArgs e)
         {
             var datepicker = sender as DatePicker;
+            var date = datepicker.SelectedDate;
 
-            var listboxitem = LISTBOX.GetItemfromControl<DatePicker>(listbox, datepicker, "datepicker");
+            vm.SalesLoad();
 
-            var parentsObj = (Sale)listboxitem.DataContext;
-
-            parentsObj.date = datepicker.SelectedDate.ToString();
+            listbox.UpdateLayout();
         }
 
         private void Btn_Load(object sender, RoutedEventArgs e)
         {
-            vm.ListLoad();
+            vm.SalesLoad();
         }
     }
 }

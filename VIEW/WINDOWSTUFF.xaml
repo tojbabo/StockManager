@@ -3,17 +3,44 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"    
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:StockManager.VIEW"
-        mc:Ignorable="d" Background="Brown"
-        Title="WINDOWSTUFF" Height="400" Width="300">
+        xmlns:local="clr-namespace:StockManager.VIEW" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" ResizeMode="NoResize"  BorderBrush="#b9ac92" BorderThickness="0.5"
+        Title="WINDOWSTUFF" Height="450" Width="400" WindowStyle="None"
+        Background="#fbe6d4">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="3*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="White">
+        <Grid Grid.Row="0" Background="#ffa931" MouseLeftButtonDown="GridMouseDown" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="#b9ac92" />
+            <Grid Grid.Column="1" Background="#ffa931" />
+            <Grid Grid.Column="2" Background="#fecb89" />
+            <Grid Grid.Column="3" Background="#fbe6d4" />
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0" Grid.Column="4">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                        Width="25" Height="25" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}"
+                        Click="Button_EXIT">
+                    <materialDesign:PackIcon Kind="Close"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="1" Background="#b9ac92">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -38,7 +65,7 @@
             </Border>
 
         </Grid>
-        <ListView x:Name="listview" Grid.Row="1" ItemsSource="{Binding items}"
+        <ListView x:Name="listview" Grid.Row="2" ItemsSource="{Binding items}"
                   HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -70,7 +97,12 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Grid Grid.Row="2">
+        <Separator Grid.Row="3" Margin="0,0,0,5">
+            <Separator.RenderTransform>
+                <ScaleTransform ScaleY="0.5"/>
+            </Separator.RenderTransform>
+        </Separator>
+        <Grid Grid.Row="4">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -91,16 +123,19 @@
             <TextBox Margin="5" Grid.Row="1" Grid.Column="1" x:Name="ITEM"/>
             <TextBox Margin="5" Grid.Row="1" Grid.Column="2" x:Name="PRICE"/>
         </Grid>
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="5" Background="#fecb89">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Margin="5" Grid.Column="0" Content="추가" Click="Btn_Add"/>
-            <Button Margin="5" Grid.Column="1" Content="삭제" Click="Btn_Del"/>
-            <Button Margin="5" Grid.Column="2" Content="저장" Click="Btn_Save"/>
+            <Button Height="auto" Grid.Column="0" Content="추가" Click="Btn_Add"
+                    Background="{x:Null}" BorderThickness="0"/>
+            <Button Height="auto" Grid.Column="1" Content="삭제" Click="Btn_Del"
+                    Background="{x:Null}" BorderThickness="0"/>
+            <Button Height="auto" Grid.Column="2" Content="저장" Click="Btn_Save"
+                    Background="{x:Null}" BorderThickness="0"/>
         </Grid>
     </Grid>
 </Window>

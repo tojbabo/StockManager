@@ -4,7 +4,6 @@ namespace StockManager.MODEL
 {
     public class Sale : PROPERTIES
     {
-        public string date { get; set; }
         private string _count;
         public string count
         {
@@ -30,7 +29,7 @@ namespace StockManager.MODEL
 
         public new string ToString()
         {
-            return $"{date},{count},{total},{product.ToString()}";
+            return $"{count},{total},{product.ToString()}";
         }
     }
 }
