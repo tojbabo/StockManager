@@ -35,7 +35,20 @@ namespace StockManager.UTILITY
             return null;
         }
 
-        
+        public static T Getcontrolfromidx<T>(ListBox list, int idx, string controlname)
+        {
+            if (list.Items.Count < idx || list.Items.Count == 0) return default(T);
+
+            var v = (ListBoxItem)list.ItemContainerGenerator.ContainerFromItem(list.Items[idx]);
+            if (v == null) return default(T);
+
+
+
+            return GetControlfromItem<T>(v, controlname);
+
+        }
+
+
         /// <summary>
         /// 리스트박스 아이템에서 특정 컨트롤을 찾아오는 함수
         /// </summary>

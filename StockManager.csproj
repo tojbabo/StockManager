@@ -75,11 +75,11 @@
     <Compile Include="UTILITY\CONVERTER\ProductConverter.cs" />
     <Compile Include="UTILITY\FILE.cs" />
     <Compile Include="UTILITY\LISTBOX.cs" />
+    <Compile Include="UTILITY\Util.cs" />
     <Compile Include="VIEWMODEL\CORE.cs" />
     <Compile Include="ABSTRACT\VM.cs" />
     <Compile Include="VIEWMODEL\VM_FRAME.cs" />
     <Compile Include="VIEWMODEL\VM_MATERIAL.cs" />
-    <Compile Include="VIEWMODEL\VM_INPUT_TEST.cs" />
     <Compile Include="VIEWMODEL\VM_PRODUCT.cs" />
     <Compile Include="VIEWMODEL\VM_SALE.cs" />
     <Compile Include="VIEWMODEL\VM_STUFF.cs" />
@@ -90,26 +90,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="VIEW\PAGEINPUT.xaml.cs">
-      <DependentUpon>PAGEINPUT.xaml</DependentUpon>
-    </Compile>
     <Compile Include="VIEW\PAGEMATERIAL.xaml.cs">
       <DependentUpon>PAGEMATERIAL.xaml</DependentUpon>
     </Compile>
     <Compile Include="VIEW\PAGESALE.xaml.cs">
       <DependentUpon>PAGESALE.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\WINDOWPRODUCT.xaml.cs">
+    <Compile Include="VIEW\CHILD\WINDOWPRODUCT.xaml.cs">
       <DependentUpon>WINDOWPRODUCT.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\WINDOWSTUFF.xaml.cs">
+    <Compile Include="VIEW\CHILD\WINDOWSTUFF.xaml.cs">
       <DependentUpon>WINDOWSTUFF.xaml</DependentUpon>
     </Compile>
     <Page Include="VIEW\FRAMEMAIN.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="VIEW\PAGEINPUT.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,11 +114,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VIEW\WINDOWPRODUCT.xaml">
+    <Page Include="VIEW\CHILD\WINDOWPRODUCT.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VIEW\WINDOWSTUFF.xaml">
+    <Page Include="VIEW\CHILD\WINDOWSTUFF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

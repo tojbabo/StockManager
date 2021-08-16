@@ -2,6 +2,7 @@
 using StockManager.MODEL;
 using StockManager.UTILITY;
 using StockManager.VIEW;
+using StockManager.VIEW.CHILD;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

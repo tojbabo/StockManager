@@ -12,7 +12,7 @@ namespace StockManager.UTILITY
         static string _path = @"test";
         public static void write(string data)
         {
-            StreamWriter file = 
+            StreamWriter file =
                 new StreamWriter(_path, true, Encoding.GetEncoding("utf-8"));
 
             file.WriteLine(data);
@@ -21,8 +21,22 @@ namespace StockManager.UTILITY
 
         public static void write(string path, List<string> data, bool append = true)
         {
+
+
             StreamWriter file =
                 new StreamWriter(path, append, Encoding.GetEncoding("utf-8"));
+
+            foreach (string s in data)
+            {
+                file.WriteLine(s);
+            }
+            file.Close();
+        }
+
+        public static void write(string path, DateTime date, List<string> data, bool append = true)
+        {
+            StreamWriter file =
+                new StreamWriter(path + Util.Date2Str(date), append, Encoding.GetEncoding("utf-8"));
 
             foreach (string s in data)
             {
@@ -50,5 +64,25 @@ namespace StockManager.UTILITY
                 return null;
             }
         }
+        public static List<string> read(DateTime date, string path)
+        {
+            try
+            {
+                StreamReader file = new StreamReader(path + Util.Date2Str(date));
+                List<string> datas = new List<string>();
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+                    datas.Add(line);
+                }
+                file.Close();
+                return datas;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
     }
 }

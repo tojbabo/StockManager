@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace StockManager.VIEW
+namespace StockManager.VIEW.CHILD
 {
     public partial class WINDOWSTUFF : Window
     {

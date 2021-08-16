@@ -19,7 +19,6 @@ namespace StockManager.VIEW
     /// </summary>
     public partial class FRAMEMAIN : Window
     {
-        private PAGEINPUT page_input;
         private PAGEMATERIAL page_material;
         private PAGESALE page_sale;
         public FRAMEMAIN()
@@ -31,7 +30,6 @@ namespace StockManager.VIEW
 
         private void PageLoad()
         {
-            page_input = new PAGEINPUT();
             page_material = new PAGEMATERIAL();
             page_sale = new PAGESALE();
         }
@@ -74,8 +72,6 @@ namespace StockManager.VIEW
                 FRAME.Navigate(page_material);
             else if(b == btn_sale)
                 FRAME.Navigate(page_sale);
-            else if(b == btn_test)
-                FRAME.Navigate(page_input);
 
             if (pre_B != null) pre_B.Background = new SolidColorBrush(Color.FromRgb(254, 203, 137));
 

@@ -2,6 +2,7 @@
 using StockManager.MODEL;
 using StockManager.UTILITY;
 using StockManager.VIEW;
+using StockManager.VIEW.CHILD;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -77,7 +78,7 @@ namespace StockManager.VIEWMODEL
             if (Sales.Count != 0 && Sales.Last().product == null) return;
             Sales.Add(new Sale());
         }
-        public void ListSAVE()
+        public void ListSAVE(DateTime when)
         {
             List<string> datas = new List<string>();
             foreach (var v in Sales)
@@ -85,7 +86,9 @@ namespace StockManager.VIEWMODEL
                 if (v.product == null) continue;
                 datas.Add(v.ToString());
             }
-            FILE.write(path_sale, datas, false);
+
+
+            FILE.write(path_sale, when, datas, false);
         }
         public void ListRESET()
         {
@@ -109,27 +112,31 @@ namespace StockManager.VIEWMODEL
                 try
                 {
                     var datas = line.Split(',');
-                products.Add(new Product
-                {
-                    code = datas[0],
-                    category = datas[1],
-                    name = datas[2],
-                    price = Convert.ToInt32(datas[3]),
-                    comment = datas[4]
-                });
+                    products.Add(new Product
+                    {
+                        code = datas[0],
+                        category = datas[1],
+                        name = datas[2],
+                        price = Convert.ToInt32(datas[3]),
+                        comment = datas[4]
+                    });
                 }
                 catch { continue; }
             }
 
         }
 
-        public void SalesLoad()
+        public void SalesLoad(DateTime date)
         {
             Sales.Clear();
 
-            var lines = FILE.read(path_sale);
+            var lines = FILE.read(date, path_sale);
 
-            if (lines == null) return;
+            if (lines == null)
+            {
+                ListADD();
+                return;
+            }
 
             foreach (string line in lines)
             {

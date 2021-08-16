@@ -65,13 +65,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="btn_material" Grid.Column="3" Content="재료" Click="Btn_Click"
                     Background="#fecb89" Height="auto" BorderBrush="{x:Null}" BorderThickness="0" />
             <Button x:Name="btn_sale" Grid.Column="4" Content="판매" Click="Btn_Click" 
-                    Background="#fecb89" Height="auto" BorderBrush="{x:Null}" BorderThickness="0" />
-            <Button x:Name="btn_test" Grid.Column="5" Content="참고용" Click="Btn_Click" 
                     Background="#fecb89" Height="auto" BorderBrush="{x:Null}" BorderThickness="0" />
         </Grid>
         <Frame Grid.Row="2" x:Name="FRAME" NavigationUIVisibility="Hidden"/>

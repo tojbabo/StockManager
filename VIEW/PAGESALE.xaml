@@ -69,17 +69,16 @@
                                  VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
                         -->
                         <ComboBox Grid.Column="0" Name="combo" ItemsSource="{Binding products }" Width="100"
-                                  DisplayMemberPath="name" SelectionChanged="ComboBox_SelectionChanged"
-                                  SelectedIndex="{Binding Path=DataContext, ElementName=test ,Converter={util:ProductConverter}}">
-                            <!--SelectedIndex="{Binding Path=, ElementName=listbox ,Converter={util:ProductConverter}}"-->
+                                  DisplayMemberPath="name" SelectionChanged="ComboBox_SelectionChanged">
+                            <!--" SelectedIndex="{Binding Path=DataContext, ElementName=count ,Converter={util:ProductConverter}}"-->
                             <ComboBox.DataContext >
                                 <vm:VM_SALE/>
                             </ComboBox.DataContext>
                         </ComboBox>
                         <TextBox Grid.Column="1" Text="{Binding product.price}" Width="100" 
                                  VerticalAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
-                        <TextBox Grid.Column="2" Text="{Binding count}" Width="100" SelectionBrush="#fecb89" Name="test"
-                                 VerticalAlignment="Center" HorizontalContentAlignment="Center" />
+                        <TextBox Grid.Column="2" Text="{Binding count}" Width="100" SelectionBrush="#fecb89" Name="count"
+                                 VerticalAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="PriceTextInputEvent"/>
                         <TextBox Grid.Column="3" Text="{Binding total}" Width="100" SelectionBrush="#fecb89"
                                  VerticalAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
                     </Grid>
