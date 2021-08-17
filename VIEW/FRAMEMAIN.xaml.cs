@@ -25,7 +25,7 @@ namespace StockManager.VIEW
         {
             InitializeComponent();
             PageLoad();
-            FRAME.Navigate(page_sale);
+            change(2);
         }
 
         private void PageLoad()
@@ -68,15 +68,32 @@ namespace StockManager.VIEW
         private void Btn_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
-            if(b == btn_material)
-                FRAME.Navigate(page_material);
-            else if(b == btn_sale)
-                FRAME.Navigate(page_sale);
+            if (b == btn_material)
+                change(1);
+            else if (b == btn_sale)
+                change(2);
+
+        }
+        private void change(int flag)
+        {
+            Button b = null;
+            switch (flag) {
+                case 1:
+                    FRAME.Navigate(page_material);
+                    b = btn_material;
+                    break;
+                case 2:
+                    FRAME.Navigate(page_sale);
+                    b = btn_sale;
+                    break;
+            }
+
+           
 
             if (pre_B != null) pre_B.Background = new SolidColorBrush(Color.FromRgb(254, 203, 137));
 
-            b.Background = new SolidColorBrush(Color.FromRgb(185, 172, 146)) ;
-            
+            b.Background = new SolidColorBrush(Color.FromRgb(185, 172, 146));
+
             pre_B = b;
         }
     }

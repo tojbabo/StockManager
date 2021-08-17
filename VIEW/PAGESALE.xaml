@@ -7,7 +7,7 @@
       xmlns:vm="clr-namespace:StockManager.VIEWMODEL"
       xmlns:sys="clr-namespace:System;assembly=mscorlib" 
       xmlns:util="clr-namespace:StockManager.UTILITY.CONVERTER"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" Loaded="onLoad"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PAGESALE">
 
@@ -45,7 +45,6 @@
         </Grid>
         <ListBox x:Name="listbox" Grid.Row="2" HorizontalContentAlignment="Stretch"
                  ItemsSource="{Binding Sales}">
-
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Padding" Value="0"/>
@@ -61,26 +60,29 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <!--
-                        <DatePicker x:Name="datepicker" Grid.Column="0" Width="100" SelectedDate="{Binding date, Converter={util:DateConverter}}"
-                                    VerticalAlignment="Center" HorizontalAlignment="Center" SelectedDateChanged="DatePicker_SelectinoChanged"/>
-                        
-                        <TextBox Grid.Column="0" Text="{Binding date}" Width="100" SelectionBrush="#fecb89"
-                                 VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        -->
-                        <ComboBox Grid.Column="0" Name="combo" ItemsSource="{Binding products }" Width="100"
-                                  DisplayMemberPath="name" SelectionChanged="ComboBox_SelectionChanged">
-                            <!--" SelectedIndex="{Binding Path=DataContext, ElementName=count ,Converter={util:ProductConverter}}"-->
+
+                        <ComboBox Grid.Column="0" Name="combo" ItemsSource="{Binding products }" 
+                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                  DisplayMemberPath="name" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Stretch">
                             <ComboBox.DataContext >
                                 <vm:VM_SALE/>
                             </ComboBox.DataContext>
                         </ComboBox>
-                        <TextBox Grid.Column="1" Text="{Binding product.price}" Width="100" 
-                                 VerticalAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
-                        <TextBox Grid.Column="2" Text="{Binding count}" Width="100" SelectionBrush="#fecb89" Name="count"
-                                 VerticalAlignment="Center" HorizontalContentAlignment="Center" PreviewTextInput="PriceTextInputEvent"/>
-                        <TextBox Grid.Column="3" Text="{Binding total}" Width="100" SelectionBrush="#fecb89"
-                                 VerticalAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
+                        <Border Grid.Column="0" BorderBrush="Gray" BorderThickness="1">
+                        </Border>
+                        <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1">
+                            <TextBox Grid.Column="1" Text="{Binding product.price}" 
+                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsEnabled="False"/>
+                        </Border>
+                        <Border Grid.Column="2" BorderBrush="Gray" BorderThickness="1">
+                            <TextBox Grid.Column="2" Text="{Binding count}"  SelectionBrush="#fecb89" Name="count"
+                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        </Border>
+                        <Border Grid.Column="3" BorderBrush="Gray" BorderThickness="1">
+                            <TextBox Grid.Column="3" Text="{Binding total}"  SelectionBrush="#fecb89"
+                                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsEnabled="False"/>
+                        </Border>
+
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

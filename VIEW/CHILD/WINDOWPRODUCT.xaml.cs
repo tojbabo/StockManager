@@ -34,13 +34,20 @@ namespace StockManager.VIEW.CHILD
 
         private void Btn_Add(object sender, RoutedEventArgs e)
         {
-            vm.ProductAdd(new Product()
+            try
             {
-                category = CATEGORY.Text,
-                name = NAME.Text,
-                price = Convert.ToInt32(PRICE.Text),
-                comment = COMMENT.Text
-            });
+                vm.ProductAdd(new Product()
+                {
+                    category = CATEGORY.Text,
+                    name = NAME.Text,
+                    price = Convert.ToInt32(PRICE.Text),
+                    comment = COMMENT.Text
+                });
+            }
+            catch
+            {
+                return;
+            }
 
             CATEGORY.Text = "";
             NAME.Text = "";
