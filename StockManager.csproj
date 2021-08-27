@@ -72,6 +72,7 @@
     <Compile Include="MODEL\Sale.cs" />
     <Compile Include="MODEL\Stuff.cs" />
     <Compile Include="UTILITY\CONVERTER\DateConverter.cs" />
+    <Compile Include="UTILITY\CONVERTER\NumberDivider.cs" />
     <Compile Include="UTILITY\CONVERTER\ProductConverter.cs" />
     <Compile Include="UTILITY\FILE.cs" />
     <Compile Include="UTILITY\LISTBOX.cs" />
